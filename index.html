@@ -1,0 +1,64 @@
+<!DOCTYPE html><!-- Daisy Sandoval -->
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery:: National Park</title>
+  <link rel="stylesheet" type="text/css" href="jsjqfinal.css">
+  <link rel="stylesheet" type="text/css" href="css/lightbox.min.css">
+  <script type="text/javascript" src="js/lightbox-plus-jquery.min.js"></script>
+
+</head>
+<body>
+
+  <section>
+
+    <h3>U.S. National Parks Gallery</h3>
+    <!-- This div holds all the photos -->
+    <div class="gallery" id="gallery">
+      <!-- Javascript will dynamically add photos here based on array of data "imgData" -->
+    </div>
+  </section>
+
+  <script type="text/javascript">
+
+  //This will hold the data for creating image elements
+  var imgData = [
+    {"href": "gallery/acadia.jpg", "dataLightbox": "park-gallery", "dataTitle": "Acadia National Park", "imgsrc": "gallery/acadia-thumb.jpg"},
+    {"href": "gallery/arches.jpg", "dataLightbox": "park-gallery", "dataTitle": "Arches National Park", "imgsrc": "gallery/arches-thumb.jpg"},
+    {"href": "gallery/brycecanyon.jpg", "dataLightbox": "park-gallery", "dataTitle": "Bryce Canyon National Park", "imgsrc": "gallery/brycecanyon-thumb.jpg"},
+    {"href": "gallery/deathvalley.jpg", "dataLightbox": "park-gallery", "dataTitle": "Death Valley National Park", "imgsrc": "gallery/deathvalley-thumb.jpg"},
+    {"href": "gallery/glacier.jpg", "dataLightbox": "park-gallery", "dataTitle": "Glacier National Park", "imgsrc": "gallery/glacier-thumb.jpg"},
+    {"href": "gallery/grandcanyon.jpg", "dataLightbox": "park-gallery", "dataTitle": "Grand Canyon National Park", "imgsrc": "gallery/grandcanyon-thumb.jpg"},
+    {"href": "gallery/joshuatree.jpg", "dataLightbox": "park-gallery", "dataTitle": "Joshua Tree National Park", "imgsrc": "gallery/joshuatree-thumb.jpg"},
+    {"href": "gallery/rockymountains.jpg", "dataLightbox": "park-gallery", "dataTitle": "Rocky Mountain National Park", "imgsrc": "gallery/rockymountains-thumb.jpg"},
+    {"href": "gallery/sequoia.jpg", "dataLightbox": "park-gallery", "dataTitle": "Sequoia National Park", "imgsrc": "gallery/sequoia-thumb.jpg"},
+    {"href": "gallery/yellowstone.jpg", "dataLightbox": "park-gallery", "dataTitle": "Yellowstone National Park", "imgsrc": "gallery/yellowstone-thumb.jpg"},
+    {"href": "gallery/zion.jpg", "dataLightbox": "park-gallery", "dataTitle": "Zion National Park", "imgsrc": "gallery/zion-thumb.jpg"},
+    {"href": "gallery/yosemite.jpg", "dataLightbox": "park-gallery", "dataTitle": "Yosemite National Park", "imgsrc": "gallery/yosemite-thumb.jpg"},
+  ];
+
+  //This function will help create an element dynamically
+  function createElement(element){
+    var newElement = document.createElement("a");
+    var imgElement = document.createElement("img");
+    newElement.setAttribute("href", element.href);
+    newElement.setAttribute("data-lightbox", element.dataLightbox);
+    newElement.setAttribute("data-title", element.dataTitle);
+    imgElement.setAttribute("src", element.imgsrc);
+    newElement.innerHTML = imgElement.outerHTML;
+    return newElement;
+  }
+
+  //This will hold the element "gallery" for easier reference later
+  var gallery = document.getElementById("gallery");
+
+  //This will loop through the imgData array and will append it to the HTML document
+  for(let i = 0; i < imgData.length; i++){
+        gallery.appendChild(createElement(imgData[i]));
+  }
+     </script>
+</body>
+
+
+</html>
